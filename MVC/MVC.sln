@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC", "MVC\MVC.csproj", "{E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC.Tests", "MVC.Tests\MVC.Tests.csproj", "{3C67B858-5ADC-43A9-A01A-FFEC2A7D2E6D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumTests", "SeleniumTests\SeleniumTests.csproj", "{E65907C3-F7DA-4C5B-91D3-55F905EC5439}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumTests.Tests", "SeleniumTests.Tests\SeleniumTests.Tests.csproj", "{73A83A3B-08F1-4031-881A-6DBF55849CB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{3C67B858-5ADC-43A9-A01A-FFEC2A7D2E6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C67B858-5ADC-43A9-A01A-FFEC2A7D2E6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C67B858-5ADC-43A9-A01A-FFEC2A7D2E6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E65907C3-F7DA-4C5B-91D3-55F905EC5439}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E65907C3-F7DA-4C5B-91D3-55F905EC5439}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E65907C3-F7DA-4C5B-91D3-55F905EC5439}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E65907C3-F7DA-4C5B-91D3-55F905EC5439}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73A83A3B-08F1-4031-881A-6DBF55849CB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73A83A3B-08F1-4031-881A-6DBF55849CB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73A83A3B-08F1-4031-881A-6DBF55849CB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73A83A3B-08F1-4031-881A-6DBF55849CB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
