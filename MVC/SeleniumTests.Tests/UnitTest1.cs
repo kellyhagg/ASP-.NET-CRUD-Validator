@@ -12,7 +12,8 @@ namespace seleniumTest.Tests
         public void TestMethod1()
         {
             //string url = "http://localhost:49198/Clients/Create";
-            string url = "https://localhost:44373";
+            //string url = "https://localhost:44373";
+            string url = "https://localhost:44316";
             //string url = "http://localhost:49198";
             ChromeDriver driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
