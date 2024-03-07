@@ -24,51 +24,30 @@ namespace seleniumTest.Tests
         }
 
         [TestMethod, Priority(0)]
-        public void TestClientCreation()
+        public void TestClientCRUD()
         {
             // Navigate to Client Index and Create a new Client
-            driver.FindElement(By.LinkText("Client")).Click();
-            driver.FindElement(By.LinkText("Create New")).Click();
-            driver.FindElement(By.Id("Name")).SendKeys("Marge Simpson");
-            driver.FindElement(By.Id("Address")).SendKeys("Springfield");
-            driver.FindElement(By.XPath("//input[@type='submit']")).Click();
+            CreateClient("Marge Simpson", "Springfield");
 
             // Verify Client in Index
             Assert.IsTrue(driver.PageSource.Contains("Marge Simpson"), "Client not found in Index after creation.");
-        }
 
-        [TestMethod, Priority(1)]
-        public void TestClientUpdate()
-        {
-            // Navigate to Client's Edit page
-            driver.FindElement(By.LinkText("Client")).Click();
-            // This requires identifying the correct Edit link for "Marge Simpson"; implementation may vary
-            driver.FindElement(By.LinkText("Edit")).Click();
-            var nameField = driver.FindElement(By.Id("Name"));
-            nameField.Clear();
-            nameField.SendKeys("Edited Marge Simpson");
-            driver.FindElement(By.XPath("//input[@type='submit']")).Click();
+            // Edit the Client
+            EditClient("Marge Simpson", "Edited Marge Simpson");
 
             // Verify Client Name Change in Index
             driver.FindElement(By.LinkText("Client")).Click();
             Assert.IsTrue(driver.PageSource.Contains("Edited Marge Simpson"), "Client name not updated in Index view.");
-        }
 
-        [TestMethod, Priority(2)]
-        public void TestClientDeletion()
-        {
-            // Navigate to Client's Delete page
-            driver.FindElement(By.LinkText("Client")).Click();
-            // This requires identifying the correct Delete link for "Edited Marge Simpson"; implementation may vary
-            driver.FindElement(By.LinkText("Delete")).Click();
-            driver.FindElement(By.XPath("//input[@type='submit']")).Click();
+            // Delete the Client
+            DeleteClient("Edited Marge Simpson");
 
             // Verify Deletion
             driver.FindElement(By.LinkText("Client")).Click();
             Assert.IsFalse(driver.PageSource.Contains("Edited Marge Simpson"), "Client was not removed from Index view.");
         }
 
-        [TestMethod, Priority(3)]
+        [TestMethod]
         public void TestCreateAndDeleteMultipleClients()
         {
             // Create Client #1
@@ -101,6 +80,16 @@ namespace seleniumTest.Tests
             driver.FindElement(By.Id("Name")).SendKeys(name);
             driver.FindElement(By.Id("Address")).SendKeys(address);
             driver.FindElement(By.XPath("//input[@type='submit']")).Click();
+        }
+
+        private void EditClient(string originalName, string newName)
+        {
+            driver.Navigate().GoToUrl($"{baseUrl}/Clients");
+            driver.FindElement(By.XPath($"//td[contains(text(), '{originalName}')]/following-sibling::td/a[text()='Edit']")).Click();
+            var nameField = driver.FindElement(By.Id("Name"));
+            nameField.Clear();
+            nameField.SendKeys(newName);
+            driver.FindElement(By.CssSelector("input[type=submit]")).Click();
         }
 
         private bool IsClientPresentInIndex(string clientName)
@@ -179,4 +168,3 @@ namespace seleniumTest.Tests
         }
     }
 }
-
