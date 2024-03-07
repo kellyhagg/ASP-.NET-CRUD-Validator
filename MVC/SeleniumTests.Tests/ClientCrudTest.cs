@@ -23,7 +23,7 @@ namespace seleniumTest.Tests
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
         }
 
-        [TestMethod, Priority(0)]
+        [TestMethod]
         public void TestClientCRUD()
         {
             // Navigate to Client Index and Create a new Client
